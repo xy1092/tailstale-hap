@@ -1,0 +1,36 @@
+// 主入口 Ability
+
+import { UIAbility, Want, AbilityConstant } from '@kit.AbilityKit';
+import { window } from '@kit.ArkUI';
+
+export default class EntryAbility extends UIAbility {
+  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    console.info('EntryAbility onCreate');
+  }
+
+  onDestroy(): void {
+    console.info('EntryAbility onDestroy');
+  }
+
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+    windowStage.loadContent('pages/Index', (err) => {
+      if (err.code) {
+        console.error('Failed to load content: ' + JSON.stringify(err));
+        return;
+      }
+      console.info('Window stage content loaded');
+    });
+  }
+
+  onWindowStageDestroy(): void {
+    console.info('WindowStage destroy');
+  }
+
+  onForeground(): void {
+    console.info('EntryAbility onForeground');
+  }
+
+  onBackground(): void {
+    console.info('EntryAbility onBackground');
+  }
+}

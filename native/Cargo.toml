@@ -1,0 +1,34 @@
+[package]
+name = "hm-tailscale-native"
+version = "0.1.0"
+edition = "2021"
+description = "WireGuard tunnel native module for HarmonyOS Tailscale client"
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+boringtun = "0.7"
+x25519-dalek = { version = "2", features = ["static_secrets"] }
+rand = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"
+hex = "0.4"
+libc = "0.2"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+ohrs = { git = "https://github.com/ohos-rs/ohos-rs", optional = true }
+
+[features]
+default = []
+ohos = ["ohrs"]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = "s"
+lto = true
+strip = true

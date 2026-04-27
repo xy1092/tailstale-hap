@@ -1,0 +1,9 @@
+{
+  "name": "ssh",
+  "version": "1.0.0",
+  "description": "SSH terminal module",
+  "main": "Index.ets",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

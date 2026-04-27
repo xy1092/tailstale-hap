@@ -1,0 +1,25 @@
+[target.aarch64-unknown-linux-ohos]
+linker = "/usr/bin/clang"
+rustflags = [
+    "-C", "link-arg=--target=aarch64-linux-gnu",
+    "-C", "link-arg=-fuse-ld=lld",
+    "-C", "link-arg=--sysroot=/usr/aarch64-linux-gnu",
+    "-C", "link-arg=-L/usr/aarch64-linux-gnu/lib",
+]
+
+[target.aarch64-unknown-linux-gnu]
+linker = "/usr/bin/aarch64-linux-gnu-gcc"
+
+[target.armv7-unknown-linux-ohos]
+linker = "/usr/bin/clang"
+rustflags = [
+    "-C", "link-arg=--target=armv7-linux-gnueabihf",
+    "-C", "link-arg=-fuse-ld=lld",
+]
+
+[target.x86_64-unknown-linux-ohos]
+linker = "/usr/bin/clang"
+rustflags = [
+    "-C", "link-arg=--target=x86_64-linux-gnu",
+    "-C", "link-arg=-fuse-ld=lld",
+]

@@ -1,0 +1,9 @@
+{
+  "name": "headscale",
+  "version": "1.0.0",
+  "description": "Headscale API client for HarmonyOS",
+  "main": "Index.ets",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

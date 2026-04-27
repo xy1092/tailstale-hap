@@ -1,0 +1,23 @@
+# Rust build output
+native/target/
+
+# HarmonyOS build output
+build/
+**/.preview/
+
+# Dependencies
+node_modules/
+oh_modules/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+*.log

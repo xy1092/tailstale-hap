@@ -1,0 +1,10 @@
+{
+  "string": [
+    { "name": "app_name", "value": "HarmonyScale" },
+    { "name": "module_desc", "value": "Tailscale-compatible VPN client for HarmonyOS" },
+    { "name": "EntryAbility_desc", "value": "Main entry" },
+    { "name": "EntryAbility_label", "value": "HarmonyScale" },
+    { "name": "internet_reason", "value": "Need internet access for WireGuard tunnel" },
+    { "name": "vpn_reason", "value": "Need VPN permission to create VPN tunnel" }
+  ]
+}
