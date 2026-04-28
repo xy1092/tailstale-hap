@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "ssh",
+    "type": "shared",
+    "description": "SSH terminal module",
+    "deviceTypes": ["tablet", "2in1"],
+    "deliveryWithInstall": true
+  }
+}

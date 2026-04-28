@@ -73,11 +73,14 @@ export default class WireGuardVpnAbility extends VpnExtensionAbility {
       // 4. 创建 VPN 虚拟网卡 (TUN)
       const vpnConfig: vpnExtension.VpnConfig = {
         addresses: cfg.addresses.map(addr => {
-          const [ip, prefix] = addr.split('/');
-          return {
+          const parts = addr.split('/');
+          const ip = parts[0];
+          const prefix = parseInt(parts[1]);
+          const linkAddr: vpnExtension.LinkAddress = {
             address: { address: ip, family: 1 },
-            prefixLength: parseInt(prefix) || 32,
+            prefixLength: prefix || 32,
           };
+          return linkAddr;
         }),
         mtu: cfg.mtu,
         dnsAddresses: cfg.dnsServers,

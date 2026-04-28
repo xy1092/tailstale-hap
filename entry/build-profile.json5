@@ -1,0 +1,16 @@
+{
+  "apiType": "stageMode",
+  "buildOption": {
+    "nativeLib": {
+      "filter": {
+        "excludes": [],
+        "pickFirsts": ["libhm_tailscale_native.so"]
+      }
+    }
+  },
+  "targets": [
+    {
+      "name": "default"
+    }
+  ]
+}

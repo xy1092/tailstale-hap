@@ -1,7 +1,6 @@
 // Native 函数桥接层 - 调用 Rust C-ABI 函数
 
-// 实际导入路径需要在 oh-package.json5 中配置
-// import nativeModule from 'libhm_tailscale_native.so';
+declare function requireNative(moduleName: string): Object;
 
 // NAPI 函数签名声明
 declare interface NativeModule {
@@ -96,11 +95,11 @@ export interface KeyPair {
 }
 
 export interface TunnelStats {
-  handshake_completed: boolean
-  tx_bytes: number
-  rx_bytes: number
-  last_handshake_secs_ago: number | null
-  peer_endpoint: string
+  handshakeCompleted: boolean
+  txBytes: number
+  rxBytes: number
+  lastHandshakeSecsAgo: number | null
+  peerEndpoint: string
 }
 
 export class NativeBridge {
@@ -137,11 +136,11 @@ export class NativeBridge {
     const raw = native.wg_get_stats();
     const parsed = parseNativeJson(raw);
     return {
-      handshake_completed: (parsed['handshake_completed'] as boolean) ?? false,
-      tx_bytes: (parsed['tx_bytes'] as number) ?? 0,
-      rx_bytes: (parsed['rx_bytes'] as number) ?? 0,
-      last_handshake_secs_ago: (parsed['last_handshake_secs_ago'] as number) ?? null,
-      peer_endpoint: (parsed['peer_endpoint'] as string) ?? '',
+      handshakeCompleted: (parsed['handshake_completed'] as boolean) ?? false,
+      txBytes: (parsed['tx_bytes'] as number) ?? 0,
+      rxBytes: (parsed['rx_bytes'] as number) ?? 0,
+      lastHandshakeSecsAgo: (parsed['last_handshake_secs_ago'] as number) ?? null,
+      peerEndpoint: (parsed['peer_endpoint'] as string) ?? '',
     };
   }
 

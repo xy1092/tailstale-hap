@@ -1,7 +1,4 @@
-// Hvigor build harness
-import { hvigor } from '@ohos/hvigor-ohos-plugin';
-
-export default {
-  system: hvigor,
-  plugins: [],
-};
+{
+  "modelVersion": "5.0.0",
+  "dependencies": {}
+}

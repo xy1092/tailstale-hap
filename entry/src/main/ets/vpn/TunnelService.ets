@@ -6,7 +6,7 @@ import { Want } from '@kit.AbilityKit';
 import { HeadscaleClient } from 'headscale';
 import type { NodeInfo, PeerConfig, RegisterResponse } from 'headscale';
 
-import { NativeBridge } from './NativeBridge';
+import { NativeBridge, type KeyPair } from './NativeBridge';
 import type { TunnelConfig, HeadscaleConfig } from './types';
 
 const TAG = 'TunnelService';
@@ -14,7 +14,7 @@ const TAG = 'TunnelService';
 export class TunnelService {
   private headscale: HeadscaleClient;
   private hsConfig: HeadscaleConfig;
-  private keyPair: { privateKey: string; publicKey: string } | null = null;
+  private keyPair: KeyPair | null = null;
   private nodeId: string | null = null;
   private connected: boolean = false;
 
@@ -86,7 +86,7 @@ export class TunnelService {
       console.info(TAG, 'VPN started');
     } catch (e) {
       console.error(TAG, 'VPN start failed: ' + JSON.stringify(e));
-      throw e;
+      throw new Error(String(e));
     }
   }
 
@@ -103,7 +103,7 @@ export class TunnelService {
       console.info(TAG, 'VPN stopped');
     } catch (e) {
       console.error(TAG, 'VPN stop failed: ' + JSON.stringify(e));
-      throw e;
+      throw new Error(String(e));
     }
   }
 

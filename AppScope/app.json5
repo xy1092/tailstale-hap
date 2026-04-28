@@ -5,9 +5,6 @@
     "versionCode": 1000000,
     "versionName": "1.0.0",
     "icon": "$media:app_icon",
-    "label": "$string:app_name",
-    "targetAPIVersion": 14,
-    "compatibleAPIVersion": 12,
-    "minAPIVersion": 12
+    "label": "$string:app_name"
   }
 }
